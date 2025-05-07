@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡Feliz Cumpleaños!</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f9c5d1, #9795ef);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      color: #fff;
+      padding: 50px 20px;
+    }
+    h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 10px auto;
+    }
+    .carousel {
+      position: relative;
+      max-width: 600px;
+      margin: 40px auto;
+    }
+    .carousel img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      display: none;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .carousel-buttons {
+      margin-top: 10px;
+    }
+    .carousel-buttons button {
+      padding: 10px 20px;
+      border: none;
+      background: #fff;
+      color: #333;
+      font-weight: bold;
+      border-radius: 10px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+    video {
+      border-radius: 20px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¡Feliz Cumpleaños a la mejor amiga 🎉!</h1>
+  <p>Espero que cumplas muchos años más. Te quiero mucho, mi vida. Sos de las mejores personas que he llegado a conocer.</p>
+  <p>Somos amigas desde hace mucho. Sé que en estos momentos no te encuentras muy bien con todo y sientes que todo es muy grande para ti, pero yo siempre estaré por si quieres hablar. Todo pasa por algo 💖</p>
+
+  <!-- Carrusel de fotos -->
+  <div class="carousel">
+    <img src="img1.jpeg" class="active" alt="Foto 1">
+    <img src="img2.jpeg" alt="Foto 2">
+    <img src="img3.jpeg" alt="Foto 3">
+    <img src="img4.jpeg" alt="Foto 3">
+  </div>
+  <div class="carousel-buttons">
+    <button onclick="prev()">⟵ Anterior</button>
+    <button onclick="next()">Siguiente ⟶</button>
+  </div>
+  <video width="600" controls>
+    <source src="video.mp4" type="video/mp4">
+    Tu navegador no soporta el video.
+  </video>
+
+  <script>
+    const images = document.querySelectorAll('.carousel img');
+    let current = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+    }
+
+    function prev() {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+    }
+
+    function next() {
+      current = (current + 1) % images.length;
+      showImage(current);
+    }
+  </script>
+
+</body>
+</html>
